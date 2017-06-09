@@ -1,0 +1,50 @@
+{
+      "success":true,
+      "type":true,
+      "gifts":
+      [
+            {
+                  "title":"5000元红包",
+                  "logo":"./images/gift01.png",
+                  "giftId":759,
+                  "imgs":"images/gift01.png"
+            },
+            {
+                  "title":"50元京东卡",
+                  "logo":"./images/gift02.png",
+                  "giftId":760,
+                  "imgs":"images/gift02.png"
+            },
+            {
+                  "title":"10000元体验金",
+                  "logo":"./images/gift03.png",
+                  "giftId":761,
+                  "imgs":"images/gift03.png"
+            },
+            {
+                  "title":"5000元体验金",
+                  "logo":"./images/gift04.png",
+                  "giftId":762,
+                  "imgs":"images/gift04.png"
+            },
+            {
+                  "title":"1000元体验金",
+                  "logo":"./images/gift05.png",
+                  "giftId":763,
+                  "imgs":"images/gift05.png"
+            }
+      ],
+      "exchanges":[{
+            "mobile":"155 **** 4300",
+            "giftName":"1000元体验金",
+            "dateCreated":"03月17日",
+            "isGood":false
+      },
+            {
+                  "mobile":"136 **** 3003",
+                  "giftName":"2000元体验金",
+                  "dateCreated":"03月31日",
+                  "isGood":false
+            }
+      ]
+}

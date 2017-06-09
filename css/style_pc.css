@@ -1,0 +1,462 @@
+.blue {
+    width: 184px;
+    height: 61px;
+    line-height: 61px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-left: 30px;
+    position: relative !important;
+}
+.yellow {
+    display: block;
+    width: 184px;
+    height: 61px;
+    line-height: 61px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-left: 129px;
+    position: relative !important;
+}
+.light {
+    width: 475px;
+    margin: 0 auto;
+    background: url("../images/light.png") no-repeat center center;
+    background-size: 70%;
+    position: relative;
+}
+.w1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+.wrapper {
+    font-size: 18px;
+    min-width: 1200px;
+    background-color: #fdf8e8;
+}
+.bannerTop {
+    position: relative;
+}
+.banner {
+    position: relative;
+    height: 526px;
+    background: url(../images/pc/banner.jpg) center no-repeat;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .6);
+    box-shadow: 0\9;
+    z-index: 99;
+    behavior: url(PIE.htc);
+}
+.bannerTop .recordBtn {
+    width: 140px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border: 2px solid #ebac06;
+    border-top: 0;
+    background: #ecb81c;
+    border-radius: 0 0 5px 5px;
+    display: block;
+    position: absolute;
+    left: 15%;
+    bottom: -44px;
+    z-index: 9;
+    box-sizing: border-box;
+    behavior: url(PIE.htc);
+}
+.bannerTop .recordBtn:hover {
+    color: #d92929;
+}
+.bold {
+    font-weight: bold;
+}
+
+/* font-color */
+.font_yellow {
+    color: #ecb81c;
+}
+.font_deep_yellow {
+    color: #d39f04;
+}
+.font_brown {
+    color: #6c4e00;
+}
+.font_red {
+    color: #d92929;
+}
+
+/* title */
+.title {
+    color: #ecb81c;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+.title h3 {
+}
+.title h3 span {
+    font-size: 75.57px;
+    font-style: italic;
+    margin-right: 5px;
+}
+.title p {
+    display: inline-block;
+    height: 65px;
+    vertical-align: super;
+    padding-left: 40px;
+    border: 0;
+    border-bottom: 10px solid transparent;
+    border-image: url(../images/border-img.png) 10 10 round;
+    border-image: url(./images/border-img.png) 10 round\0;
+    position: relative;
+    z-index: 1000;
+    behavior: url(PIE.htc);
+}
+
+/* 内容*/
+.content {
+    margin-bottom: 60px;
+}
+
+/* 邀请按钮 */
+.invite {
+    margin-top: 50px;
+    padding-bottom: 80px;
+}
+.invite a {
+    display: block;
+    width: 570px;
+    height: 105px;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 5px solid #d39f04;
+    border-bottom-width: 10px;
+    font-size: 36px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 92px;
+    position: relative;
+    z-index: 1000;
+    behavior: url(PIE.htc);
+}
+
+/* rule规则 */
+.rule {
+    color: #6c4e00;
+    width: 1020px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 32px;
+}
+.rule h4 {
+    font-weight: normal;
+}
+.partTable table {
+    width: 1026px;
+    border: 10px solid transparent;
+    border-image: url(../images/border-img.png) 10 10 round;
+    border-image: url(./images/border-img.png) 10 round\0;
+    background: #fdf7e6;
+    margin: 20px auto;
+    color: #ecb81c;
+    line-height: 70px;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+    behavior: url(PIE.htc);
+}
+.partTable table thead {
+}
+table th {
+    width: 33%;
+    height: 70px;
+    background: #fff;
+}
+.part2 table {
+    border-left: 0;
+    border-bottom: 0;
+}
+.part2 table td, .part2 table th {
+    border: 0;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-image: url(../images/border-img.png) 10 10 round;
+    border-image: url(./images/border-img.png) 10 round\0;
+    position: relative;
+    z-index: 1000;
+    behavior: url(PIE.htc);
+}
+.part2 table tr td:nth-child(1), .part2 table tr th:nth-child(1) {
+    text-align: left;
+}
+.part2 table tr td:nth-child(1) span, .part2 table tr th:nth-child(1) span {
+    padding-left: 80px;
+}
+.part3 {
+    width: 1000px;
+    margin: 0 auto;
+}
+.part3 table {
+    width: 50%;
+}
+.part3 table th {
+    border: 0;
+    border-bottom: 10px solid transparent;
+    border-image: url(../images/border-img.png) 10 10 round;
+    border-image: url(./images/border-img.png) 10 10 round\0;
+    position: relative;
+    z-index: 1000;
+    behavior: url(PIE.htc);
+}
+.part3 table th, .part3 table td {
+    text-align: center;
+}
+.part3 table.fr {
+    border-left: 0;
+}
+.tip {
+    color: #d39f04;
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 45px;
+}
+.part1 {
+    padding-top: 60px;
+}
+.part2 {
+    background-color: #fbf1d2;
+    padding-top: 80px;
+}
+.part3 {
+    padding-top: 60px;
+}
+.part3 ul {
+}
+.part3 ul li {
+    float: left;
+    width: 33.333%;
+}
+.part3 ul li div {
+    height: 240px;
+}
+.part3 ul li.award1 div {
+    background: url(../images/pc/prize1.png) center bottom no-repeat;
+}
+.part3 ul li.award2 div {
+    background: url(../images/pc/prize2.png) center bottom no-repeat;
+}
+.part3 ul li.award3 div {
+    background: url(../images/pc/prize3.png) center bottom no-repeat;
+}
+.part3 ul li img {
+    display: block;
+    margin: 0 auto;
+}
+.part3 ul li p {
+    text-align: center;
+    font-size: 22px;
+}
+.part3 ul li p span {
+    font-size: 30px;
+}
+.list {
+    width: 30%;
+    margin:0 5% 0 0;
+    line-height: 2.8;
+    position: relative;
+    color: #6c4e00;
+}
+.fl {
+    float: left;
+}
+.list p {
+    width: 180px;
+    display: inline-block;
+}
+.list .list-title {
+    border: 10px solid transparent;
+    border-image: url(../images/border-img.png) 10 10 round;
+    border-image: url(./images/border-img.png) 10 10 round\0;
+    border-bottom: none;
+    text-align: center;
+    color: #ecb81c;
+    font-size: 18px;
+    position: relative;
+    z-index: 1000;
+    behavior: url(PIE.htc);
+}
+.list .list-title h4 {
+    position: relative;
+    z-index: 9;
+}
+.list .list-title .list-img {
+    width: 80px;
+    background: #fdf8e8;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    margin-left: -40px;
+}
+.list .list-title .list-img img {
+    width: 50%;
+}
+.list ul {
+    border: 10px solid transparent;
+    border-image: url(../images/border-img.png) 10 10 round;
+    border-image: url(./images/border-img.png) 10 10 round\0;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1000;
+    behavior: url(PIE.htc);
+}
+.list p {
+    display: inline-block;
+    width: 8rem;
+    padding-left: 2rem;
+}
+.layui-layer {
+    text-align: center;
+    font-size: 18px !important;
+}
+.layui-layer .layerBower {
+    padding: 20px 0 20px 0;
+    color: #4f4f4f;
+    font-size: 26px;
+    line-height: 28px;
+}
+.layui-layer .layui-layer-content {
+    position: relative;
+}
+.layui-layer h4 {
+    font-weight: normal;
+    height: 100px;
+    line-height: 100px;
+    margin-top: 20px;
+    color: #ecb81c;
+}
+.layui-layer .layerTitle {
+    display: inline-block;
+    padding: 0 50px;
+    font-size: 30px;
+}
+.layui-layer h4 i {
+    width: 176px;
+    height: 9px;
+    display: inline-block;
+}
+.layui-layer h4 .i1 {
+    background: url(../images/left.png) no-repeat;
+}
+.layui-layer h4 .i2 {
+    background: url(../images/right.png) no-repeat;
+}
+.bgBtn {
+    width: 100%;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+}
+.layerRecord {
+    position: relative;
+}
+.layerRecord ul {
+    width: 580px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    border-left: 0;
+}
+.layerRecord ul li {
+    height: 50px;
+    line-height: 50px;
+}
+.layerRecord ul li span {
+    display: block;
+    width: 187px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    float: left;
+}
+.layerRecord ul li:last-child span {
+    border-bottom: 0;
+}
+.layerRecordBlue {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -92px;
+}
+.layerRecord .scrollList {
+    max-height: 356px;
+    overflow-y: auto;
+}
+.layerRecord .scrollList .scrollTitle {
+    position: fixed;
+    background: #fff;
+}
+.layerRecord .scrollList li:nth-child(2) {
+    margin-top: 50px;
+}
+.layerRecord ul li span.long {
+    width: 193px;
+}
+
+/* 大转盘样式 */
+.turnplate {
+    display: block;
+    width: 100%;
+    position: relative;
+    background: url(../images/dish.png) no-repeat;
+    background-size: 100%;
+}
+.turnplate canvas.item {
+    width: 100%;
+}
+.turnplate .pointer {
+    position: absolute;
+    width: 150px;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.turnplate .pointer img {
+    width: 100%;
+}
+.commodity {
+    width: 40%;
+}
+.canvas-wrap {
+    transform: rotate(-22.5deg);
+    -webkit-transform: rotate(-22.5deg);
+}
+.turn {
+    width: 50%;
+    margin-left: 6%;
+}
+.dish {
+    position: relative;
+}
+.reserve {
+    width: 600px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    display: none;
+}
+.qr {
+    width: 165px;
+    height: 165px;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #eee;
+}
+.realCanvas{
+    height: 600px;
+}

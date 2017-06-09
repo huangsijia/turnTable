@@ -1,0 +1,10 @@
+.fontBold{font-weight:bold;}
+.red{color:#d92929;}
+.blue{display:block;background:#2d449f;color:#fff;text-align:center;}
+.yellow{display:block;background:#ecb81c;color:#fff;text-align:center;}
+.blue:hover,.yellow:hover{color:#fff;}
+.centerBtn {margin: 0 auto;}
+.gary{color:#999;}
+.blue:hover{color:#fff;background:#293e91;}
+.yellow:hover{color:#fff;background:#d7a719;}
+.reserve {display:none;}
