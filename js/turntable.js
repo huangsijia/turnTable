@@ -100,7 +100,7 @@ function setturntable(initial) {
         } else {
             turnplate.bRotate = true;
             $.ajax({
-                url: "/act-recommend/lottery.html",
+                url: "lottery.json",
                 success: function (json) {
                     if (!json.success) {
                         loginFun();
