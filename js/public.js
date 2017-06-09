@@ -3,44 +3,11 @@ var host = "";
 var layerAll=""
 num();//第三重列表邀请人
 traversal();
-loginFun();
 //是否登录
-function loginFun(){
-    $.ajax({
-        url:host+'/secure/get-login-info.html?t=' + new Date().getTime(),
-        success:function(json){
-            if(!json.isLogin){
-                if(!!u.match(/AppleWebKit.*Mobile.*/) && !!u.match(/AppleWebKit/)){
-                    layer.open({
-                        content: '<p>您还没有登录，马上去登录？</p>'
-                        ,btn: ['确定', '取消']
-                        ,yes: function(index){
-                            location.href = host+"/login/index.html?redirect=" + location.href;
-                            layer.close(index);
-                        }
-                    });
-                }else{
-                    var loginLayer;
-                    loginLayer =
-                        layer.open({
-                            type: 2,
-                            area: ['489px', '454px'],
-                            shade: [0.6, '#000'],
-                            closeBtn: true,
-                            title:false, //不显示标题
-                            content: host+'/index/login-layer.html' //捕获的元素
-                        });
-                }
-            }else{
-                realName();
-            }
-        }
-    });
-}
 //奖品接口
 function traversal() {
     $.ajax({
-        url: host+'/act-recommend/index.html?t=' + new Date().getTime(),
+        url: "./data.json",
         success: function (json) {
             if(!json.type){
                 if (typeof layer.msg === "function") {
@@ -99,7 +66,7 @@ function traversal() {
 //第三重列表
 function num() {
     $.ajax({
-        url:host+'/act-recommend/index3.html?t=' + new Date().getTime(),
+        url:"./invite.json",
         success: function (json) {
             if(!json.type){
                 if (typeof layer.msg === "function") {
@@ -134,7 +101,7 @@ function num() {
 //是否实名
 function realName() {
     $.ajax({
-        url:host+'/act-recommend/has-authed.html?t=' + new Date().getTime(),
+        url:"./record.json",
         success: function (json) {
             if(!json.success){
                 loginFun();
