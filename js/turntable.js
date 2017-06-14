@@ -46,7 +46,9 @@ function setturntable(initial) {
                     window.onload = function () {
                         drawRouletteWheel();
                     };
-                }
+                    drawRouletteWheel();
+                };
+                drawRouletteWheel();
             }
         });
     });
@@ -79,11 +81,11 @@ function setturntable(initial) {
                         shade: [0.6, '#000'],
                         closeBtn: true,
                         title:false, //不显示标题
-                        content:'<h4><i class="i1"></i><span class="layerTitle">恭喜获得</span><i class="i2"></i></h4><div class="light"><img src='+ txt.logo +' alt=""/></div><div class="bgBtn clearfix"><a href="javascript:;" class="yellow fl" onclick="recordFun()">查看奖励</a><a href="javascript:;" class="inviteBtn blue fl" onclick="inviteImg()">邀请好友</a></div>'
+                        content:'<h4><i class="i1"></i><span class="layerTitle">恭喜获得</span><i class="i2"></i></h4><div class="light"><img src='+ txt.logo +' alt=""/></div><div class="bgBtn clearfix"><a href="javascript:void(0);" class="yellow fl  layui-layer-close" onclick="recordFun()">查看奖励</a><a href="javascript:void(0);" class="inviteBtn blue fl  layui-layer-close" onclick="inviteImg()">邀请好友</a></div>'
                     });
                 }else{
                     layerAll = layer.open({
-                        content:'<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><div class="light"><img src='+ txt.logo +' alt=""/><div class="bgBtn clearfix"><a href="javascript:;" class="yellow fl" onclick="recordFun()">查看奖励</a><a href="javascript:;" class="inviteBtn blue fr" onclick="inviteImg()">邀请好友</a></div></div></div>'
+                        content:'<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><div class="light"><img src='+ txt.logo +' alt=""/><div class="bgBtn clearfix"><a href="javascript:void(0);" class="yellow fl" onclick="recordFun()">查看奖励</a><a href="javascript:void(0);" class="inviteBtn blue fr" onclick="inviteImg()">邀请好友</a></div></div></div>'
                     });
                     lightCloseFun();
                 }
@@ -100,55 +102,59 @@ function setturntable(initial) {
         } else {
             turnplate.bRotate = true;
             $.ajax({
-                url: "lottery.json",
+                url: "lotteyr.json",
                 success: function (json) {
+                    var realedName=function(json){
+                        if (!json.type) {
+                            if (typeof layer.msg === "function") {
+                                layer.msg(json.message);
+                            } else {
+                                layer.open({
+                                    content: json.message,
+                                    skin: 'msg',
+                                    time: 2
+                                });
+                            }
+                            turnplate.bRotate = !turnplate.bRotate;
+                            return false;
+                        }
+                        if (!json.hasChance) {
+                            if(typeof layer.msg === "function"){
+                                layer.open({
+                                    type: 1,
+                                    area: ['666px', '300px'],
+                                    shade: [0.6, '#000'],
+                                    closeBtn: true,
+                                    title:false, //不显示标题
+                                    content: "<h4><i class='i1'></i><span class='layerTitle'>温馨提示</span><i class='i2'></i></h4><p class='layerTip'>当前&nbsp;<span class='red'>0次</span>&nbsp;抽奖机会</p><div class='bgBtn'><a href='javascript:void(0);' class='inviteBtn blue centerBtn layui-layer-close' onclick='inviteImg()'>邀请好友</a></div>"
+                                });
+                            }else{
+                                layerAll = layer.open({
+                                    content: '<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><p>当前&nbsp;<span class="red">0次</span>&nbsp;抽奖机会</p><div class="bgBtn"><a href="javascript:void(0);" class="inviteBtn blue centerBtn" onclick="inviteImg()">邀请好友</a></div></div>'
+                                });
+                                lightCloseFun();
+                            }
+                            return false;
+                        }
+
+                        flg = false;
+                        initial.gifts.forEach(function (value, index) {
+                            if (value.giftId == json.giftId) {
+                                var winning = { 'giftName': json.giftName, 'logo': json.logo};
+                                rotateFn(index, turnplate.restaraunts[index], winning);
+                            }
+                            turnplate.bRotate = !turnplate.bRotate;
+                        })
+                    }
                     if (!json.success) {
                         loginFun();
                         turnplate.bRotate = !turnplate.bRotate;
                         return false;
-                    }
-
-                    if (!json.type) {
-                        if (typeof layer.msg === "function") {
-                            layer.msg(json.message);
-                        } else {
-                            layer.open({
-                                content: json.message,
-                                skin: 'msg',
-                                time: 2
-                            });
-                        }
+                    }else{
+                        realName(realedName,json);
                         turnplate.bRotate = !turnplate.bRotate;
                         return false;
                     }
-
-                    if (!json.hasChance) {
-                        if(typeof layer.msg === "function"){
-                            layer.open({
-                                type: 1,
-                                area: ['666px', '300px'],
-                                shade: [0.6, '#000'],
-                                closeBtn: true,
-                                title:false, //不显示标题
-                                content: "<h4><i class='i1'></i><span class='layerTitle'>温馨提示</span><i class='i2'></i></h4><p class='layerTip'>当前&nbsp;<span class='red'>0次</span>&nbsp;抽奖机会</p><div class='bgBtn'><a href='javascript:;' class='inviteBtn blue centerBtn layui-layer-close' onclick='inviteImg()'>邀请好友</a></div>"
-                            });
-                        }else{
-                            layerAll = layer.open({
-                                content: '<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><p>当前&nbsp;<span class="red">0次</span>&nbsp;抽奖机会</p><div class="bgBtn"><a href="javascript:;" class="inviteBtn blue centerBtn" onclick="inviteImg()">邀请好友</a></div></div>'
-                            });
-                            lightCloseFun();
-                        }
-                        turnplate.bRotate = !turnplate.bRotate;
-                        return false;
-                    }
-
-                    flg = false;
-                    initial.gifts.forEach(function (value, index) {
-                        if (value.giftId == json.giftId) {
-                            var winning = { 'giftName': json.giftName, 'logo': json.logo};
-                            rotateFn(index, turnplate.restaraunts[index], winning);
-                        }
-                    })
                 }
             });
 
