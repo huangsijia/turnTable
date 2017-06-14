@@ -240,16 +240,16 @@ function loadingFun(){
                 shade: [0.6, '#000'],
                 closeBtn: true,
                 title:false,
-                content:'<img src="'+host+'/act-recommend/getPic.html" style="width:100%;">'
+                content:'<img src="'+host+'/act-recommend/getPic.html" id="loadImg" style="width:100%;">'
             });
         }else{
-            var html = '<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><img src="'+host+'/act-recommend/getPic.html"></div>';
+            var html = '<div class="layerOut"><a class="lightClose"><img id="loadImg" src="images/close.png" alt=""/></a><img src="'+host+'/act-recommend/getPic.html"></div>';
             layerAll = layer.open({
                 content:html
             });
-
             lightCloseFun();
         }
+	imgLoading();
 }
 function lightCloseFun(){
     $(".lightClose").on("click",function(){
@@ -261,5 +261,6 @@ function imgLoading(){
     newimage = new Image();
     newimage.src = host+"/act-recommend/getPic.html";
     newimage.onload = function(){
+    	$("#loadImg").attr("src", newimage.src)
     }
 }
