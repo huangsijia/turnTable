@@ -4,10 +4,11 @@ var layerAll=""
 num();//第三重列表邀请人
 traversal();
 //是否登录
+
 //奖品接口
 function traversal() {
     $.ajax({
-        url: "./data.json",
+        url: './data.json',
         success: function (json) {
             if(!json.type){
                 if (typeof layer.msg === "function") {
@@ -33,15 +34,12 @@ function traversal() {
                 return false;
             }else{
                 $(".realCanvas").show();
-                // $(".reserve").hide();
+                $(".reserve").hide();
 
 
             }
 
             setturntable(json);
-        }
-        ,error:function(){
-            $(".reserve").show();
         }
     });
     $('.reserve').on('click',  function(event) {
@@ -55,7 +53,7 @@ function traversal() {
             "<h4><i class='i1'></i><span class='layerTitle'>温馨提示</span><i class='i2'></i></h4>"+
             "<p class='layerBower'>当前浏览器版本太低<br>请扫二维码参加活动</p>"+
             '<div class="qr"><img src="images/pc/qr.jpg" alt="" /></div>'+
-            "<div class='bgBtn close'><a href='javascript:;' class='blue centerBtn closeLayer'>知道了</a></div>"
+            "<div class='bgBtn close'><a href='javascript:void(0);' class='blue centerBtn closeLayer'>知道了</a></div>"
         });
         $(".closeLayer").on("click",function(){
             layer.close(layerReserve);
@@ -66,7 +64,7 @@ function traversal() {
 //第三重列表
 function num() {
     $.ajax({
-        url:"./invite.json",
+        url:host+'/act-recommend/index3.html?t=' + new Date().getTime(),
         success: function (json) {
             if(!json.type){
                 if (typeof layer.msg === "function") {
@@ -99,7 +97,7 @@ function num() {
     });
 }
 //是否实名
-function realName() {
+function realName(callback,value) {
     $.ajax({
         url:"./record.json",
         success: function (json) {
@@ -125,7 +123,11 @@ function realName() {
                     lightCloseFun();
                     return false;
                 }
-            }
+            }else{
+				if(typeof callback === "function"){
+					callback(value)
+				}
+			}
         }
     });
 }
@@ -163,11 +165,11 @@ function recordFun() {
                     shade: [0.6, '#000'],
                     closeBtn: true,
                     title:false, //不显示标题
-                    content:'<h4><i class="i1"></i><span class="layerTitle">获奖记录</span><i class="i2"></i></h4><div class="layerRecord"></div><div class="layerRecordBlue"><a href="javascript:;" class="blue centerBtn closeLayer">知道了</a></div>'
+                    content:'<h4><i class="i1"></i><span class="layerTitle">获奖记录</span><i class="i2"></i></h4><div class="layerRecord"></div><div class="layerRecordBlue"><a href="javascript:void(0);" class="blue centerBtn closeLayer">知道了</a></div>'
                 });
             }else{
                 layerAll = layer.open({
-                    content:'<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><h4 class="recordH4"><i class="i1"></i><span class="layerTitle">获奖记录</span><i class="i2"></i></h4><div class="layerRecord"></div><div class="bgBtn bgBtnTop"><a href="javascript:;" class="yellow centerBtn lightClose">知道了</a></div></div>'
+                    content:'<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><h4 class="recordH4"><i class="i1"></i><span class="layerTitle">获奖记录</span><i class="i2"></i></h4><div class="layerRecord"></div><div class="bgBtn bgBtnTop"><a href="javascript:void(0);" class="yellow centerBtn lightClose">知道了</a></div></div>'
                 })
                 lightCloseFun();
             }
@@ -189,56 +191,75 @@ function inviteImg(){
     $.ajax({
         url: host+"/act-recommend/is-run.html?t=" + new Date().getTime(),
         success: function (json) {
+            var realedName=function(){
+                if (!json.type) {
+                    if (typeof layer.msg === "function") {
+                        layer.msg(json.message);
+                    } else {
+                        layer.open({
+                            content: json.message,
+                            skin: 'msg',
+                            time: 2
+                        });
+                    }
+                    return false;
+                }
+                if(typeof layer.msg === "function"){
+                    layer.open({
+                        type: 1,
+                        area: ['666px', '300px'],
+                        shade: [0.6, '#000'],
+                        closeBtn: true,
+                        title:false, //不显示标题
+                        content: '<h4><i class="i1"></i><span class="layerTitle">温馨提示</span><i class="i2"></i></h4><p class="layerTip">请长按或截屏保存二维码图片后发送给好友</p><div class="bgBtn"><a href="javascript:void(0);" class="blue centerBtn layui-layer-close" onclick="loadingFun();">知道了</a></div>'
+                    });
+                    return false;
+                }else{
+                    layerAll = layer.open({
+                        content:'<div class="layerOut"><a class="lightClose closeLayer"><img src="images/close.png" alt=""/></a><p>请长按或截屏保存二维码图片后发送给好友</p><div class="bgBtn"><a href="javascript:void(0);" class="blue centerBtn" onclick="loadingFun();">知道了</a></div></div>'
+                    });
+                    lightCloseFun();
+                    return false;
+                }
+            }
             if (!json.success) {
                 loginFun();
                 return false;
-            }
-            if (!json.type) {
-                if (typeof layer.msg === "function") {
-                    layer.msg(json.message);
-                } else {
-                    layer.open({
-                        content: json.message,
-                        skin: 'msg',
-                        time: 2
-                    });
-                }
-                return false;
-            }
-
-            if(typeof layer.msg === "function"){
-                layer.open({
-                    type: 1,
-                    area: ['666px', '300px'],
-                    shade: [0.6, '#000'],
-                    closeBtn: true,
-                    title:false, //不显示标题
-                    content: '<h4><i class="i1"></i><span class="layerTitle">温馨提示</span><i class="i2"></i></h4><p class="layerTip">保存图片并分享。</p><div class="bgBtn"><a href="'+host+'/act-recommend/getPic.html" target="_blank" class="blue centerBtn" onclick="loadingFun()">继续邀请</a></div>'
-                });
-                return false;
             }else{
-                layerAll = layer.open({
-                    content:'<div class="layerOut"><a class="lightClose closeLayer"><img src="images/close.png" alt=""/></a><p>保存图片并分享</p><div class="bgBtn"><a href="'+host+'/act-recommend/getPic.html" class="blue centerBtn" onclick="loadingFun()">继续邀请</a></div></div>'
-                });
-                lightCloseFun();
-                return false;
+                realName(realedName,json);
+                return;
             }
         }
     });
+}
+function loadingFun(){
+        if (typeof layer.msg === "function") {
+            layer.open({
+                type: 1,
+                area: ['450px', '800px'],
+                shade: [0.6, '#000'],
+                closeBtn: true,
+                title:false,
+                content:'<img src="'+host+'/act-recommend/getPic.html" style="width:100%;">'
+            });
+        }else{
+            var html = '<div class="layerOut"><a class="lightClose"><img src="images/close.png" alt=""/></a><img src="'+host+'/act-recommend/getPic.html"></div>';
+            layerAll = layer.open({
+                content:html
+            });
+
+            lightCloseFun();
+        }
 }
 function lightCloseFun(){
     $(".lightClose").on("click",function(){
         layer.close(layerAll);
     });
 }
-function loadingFun(){
-    if (typeof layer.msg === "function") {
-        var index = layer.load(1, {
-            shade: [0.6,'#000'] //0.1透明度的白色背景
-            ,time: 200
-        });
-    }else{
-        var index = layer.open({type: 2});
+function imgLoading(){
+    var newimage = "";
+    newimage = new Image();
+    newimage.src = host+"/act-recommend/getPic.html";
+    newimage.onload = function(){
     }
 }
-
